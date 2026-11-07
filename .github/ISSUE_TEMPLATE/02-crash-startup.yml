@@ -1,0 +1,100 @@
+name: Crash or startup problem
+description: The client or a dedicated server fails to start, or crashes.
+title: "[Crash] "
+labels: ["bug"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thanks for reporting this. The crash text is the useful part. You do not need a long write-up.
+
+        Search the [existing issues](https://github.com/TheEliteStone/GregTech-Restored/issues?q=is%3Aissue), including closed ones, first. GregTech is one word. This pack is Minecraft 1.20.1 with Forge.
+
+        On a client, look in the instance folder for `crash-reports/crash-*.txt` and `logs/latest.log`. On a dedicated server, use those same folders in the server directory. Paste the crash report, or only the error section if you have no crash report. Remove private information first. Do not upload mod jars, the pack archive, a world save, or the whole log folder.
+  - type: checkboxes
+    id: before-you-start
+    attributes:
+      label: Before you submit
+      options:
+        - label: I searched the [existing issues](https://github.com/TheEliteStone/GregTech-Restored/issues?q=is%3Aissue), including closed ones, and did not find this report.
+          required: true
+        - label: I removed private information from anything I pasted or uploaded (player names I do not want public, IP addresses, session tokens, and home-folder paths).
+          required: true
+        - label: I am not uploading mod jars, the pack archive, or a world save.
+          required: true
+  - type: input
+    id: pack-version
+    attributes:
+      label: Pack version
+      description: "The GregTech: Restored version you are playing. Use the title screen, the file name you installed, or the version you were given. If the game never reached the title screen, use the file name."
+      placeholder: Title-screen version or the file name you installed
+    validations:
+      required: true
+  - type: dropdown
+    id: environment
+    attributes:
+      label: Where did this happen?
+      description: Choose Dedicated server when the server fails to start or crashes. Choose Client when your game fails to start, cannot join, or crashes while you play.
+      options:
+        - Client (singleplayer or multiplayer)
+        - Dedicated server
+    validations:
+      required: true
+  - type: dropdown
+    id: when
+    attributes:
+      label: When does it fail?
+      options:
+        - Startup, before a world loads
+        - Loading or joining a world
+        - During gameplay
+    validations:
+      required: true
+  - type: textarea
+    id: actual
+    attributes:
+      label: What happened?
+      description: What you saw. A launcher message, a frozen loading screen, or "the game closed" is fine when the log below has the detail.
+      placeholder: The instance closes during mod loading, before the main menu.
+    validations:
+      required: true
+  - type: textarea
+    id: expected
+    attributes:
+      label: What did you expect?
+      description: What should have happened instead.
+      placeholder: The game should reach the main menu.
+    validations:
+      required: true
+  - type: textarea
+    id: reproduction
+    attributes:
+      label: How can someone else reproduce it?
+      description: What you did before the crash. "Launch the pack" is enough when it fails every time on startup.
+      placeholder: |
+        1. Launch the pack
+        2. The game closes while loading mods
+    validations:
+      required: true
+  - type: textarea
+    id: logs
+    attributes:
+      label: Crash report or relevant log
+      description: Paste the crash report (`crash-reports/crash-*.txt`). If there is no crash report, paste the error section of `logs/latest.log` and the launcher message. Include the launcher name and allocated memory only when the game never writes a crash report. Do not paste an entire huge log.
+    validations:
+      required: true
+  - type: textarea
+    id: mod-changes
+    attributes:
+      label: Mods you changed
+      description: Only mods you added, removed, or updated yourself, with versions if you know them. Skip this on an unmodified pack. Do not paste a full mod list or upload jars.
+    validations:
+      required: false
+  - type: upload
+    id: screenshots
+    attributes:
+      label: Screenshots
+      description: Optional. A picture of the launcher error or crash screen helps when you have one. Do not upload a mod jar, the pack archive, or a world save.
+    validations:
+      required: false
+      accept: ".png,.jpg,.jpeg,.gif,.webp"

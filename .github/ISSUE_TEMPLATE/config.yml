@@ -1,0 +1,3 @@
+# Players can still open a blank issue for feedback that is not a bug.
+# No contact_links: this repository has no separate support destination.
+blank_issues_enabled: true
