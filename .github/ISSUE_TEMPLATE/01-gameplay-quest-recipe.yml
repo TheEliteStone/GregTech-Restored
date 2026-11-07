@@ -1,0 +1,112 @@
+name: Gameplay, quest, or recipe bug
+description: Wrong quests, recipes, progression, or other play problems.
+title: "[Gameplay] "
+labels: ["bug"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thanks for taking the time to report this. A short, specific report is enough.
+
+        Search the [existing issues](https://github.com/TheEliteStone/GregTech-Restored/issues?q=is%3Aissue), including closed ones, before you start. GregTech is one word. This pack is Minecraft 1.20.1 with Forge.
+
+        Paste only the log lines that show the problem, and remove private information first. Do not upload mod jars, the pack archive, or a world save.
+  - type: checkboxes
+    id: before-you-start
+    attributes:
+      label: Before you submit
+      options:
+        - label: I searched the [existing issues](https://github.com/TheEliteStone/GregTech-Restored/issues?q=is%3Aissue), including closed ones, and did not find this report.
+          required: true
+        - label: I removed private information from anything I pasted or uploaded (player names I do not want public, IP addresses, session tokens, and home-folder paths).
+          required: true
+        - label: I am not uploading mod jars, the pack archive, or a world save.
+          required: true
+  - type: input
+    id: pack-version
+    attributes:
+      label: Pack version
+      description: "The GregTech: Restored version you are playing. Use the title screen, the file name you installed, or the version you were given."
+      placeholder: Title-screen version or the file name you installed
+    validations:
+      required: true
+  - type: dropdown
+    id: environment
+    attributes:
+      label: Where did this happen?
+      description: Choose Dedicated server only when the problem is on the server itself. If you are playing in a world, including a server you joined, choose Client.
+      options:
+        - Client (singleplayer or multiplayer)
+        - Dedicated server
+    validations:
+      required: true
+  - type: dropdown
+    id: topic
+    attributes:
+      label: What is this about?
+      description: Pick the closest match. Leave it unset if you are not sure.
+      options:
+        - Quest
+        - Recipe or crafting
+        - Exploration or world
+        - Other gameplay
+    validations:
+      required: false
+  - type: textarea
+    id: actual
+    attributes:
+      label: What happened?
+      description: What you saw in game. Name the quest, item, machine, or dimension when you can.
+      placeholder: The quest stays incomplete after I craft the item it asks for.
+    validations:
+      required: true
+  - type: textarea
+    id: expected
+    attributes:
+      label: What did you expect?
+      description: What you thought the quest, recipe, or other behavior should do.
+      placeholder: The quest should complete after that item is crafted.
+    validations:
+      required: true
+  - type: textarea
+    id: reproduction
+    attributes:
+      label: How can someone else reproduce it?
+      description: Number the steps. Include the machine, quest chapter, or dimension if it matters.
+      placeholder: |
+        1. Start a new world
+        2. Open the quest chapter ...
+        3. Craft ...
+        4. See ...
+    validations:
+      required: true
+  - type: textarea
+    id: quest-or-recipe
+    attributes:
+      label: Quest or recipe details
+      description: Quest chapter and name, or the recipe as shown in the recipe viewer (items, and the crafting grid or machine). Leave this blank if it does not apply.
+      placeholder: "Chapter name, quest name, or the items and machine in the recipe"
+    validations:
+      required: false
+  - type: textarea
+    id: mod-changes
+    attributes:
+      label: Mods you changed
+      description: Only mods you added, removed, or updated yourself, with versions if you know them. Skip this on an unmodified pack. Do not paste a full mod list or upload jars.
+    validations:
+      required: false
+  - type: upload
+    id: screenshots
+    attributes:
+      label: Screenshots
+      description: Optional. A picture of the quest, recipe, or the wrong result helps. Do not upload a mod jar, the pack archive, or a world save.
+    validations:
+      required: false
+      accept: ".png,.jpg,.jpeg,.gif,.webp"
+  - type: textarea
+    id: logs
+    attributes:
+      label: Relevant logs
+      description: Optional. Paste only the lines that show the problem from your instance `logs/latest.log`, or from the dedicated server's `logs` folder. Skip this when a screenshot already explains it. Do not paste the whole log.
+    validations:
+      required: false
